@@ -6,6 +6,8 @@ this tracks Plasma 5.18 LTS.
 
 ## installation
 
+you cannot use pamac yet, i think. I am not sure because I have never used Manjaro before.
+
 in order to install this package, first clone this repository:
 
 ```
