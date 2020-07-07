@@ -5,12 +5,12 @@
 
 pkgname=kwin-lowlatency
 pkgver=5.19.0
-pkgrel=2
+pkgrel=1
 pkgdesc='the compositor, with added stutter/latency reductions'
 arch=(x86_64)
 url='https://github.com/tildearrow/kwin-lowlatency'
 license=(LGPL)
-depends=(kscreenlocker xcb-util-cursor plasma-framework kcmutils kwayland-server breeze kinit qt5-sensors qt5-script)
+depends=(kscreenlocker xcb-util-cursor plasma-framework kcmutils breeze kinit qt5-sensors qt5-script)
 makedepends=(git extra-cmake-modules qt5-tools kdoctools)
 optdepends=('qt5-virtualkeyboard: virtual keyboard support for kwin-wayland')
 provides=(kwin)
@@ -28,15 +28,20 @@ prepare() {
     git checkout v$pkgver
   fi
   cd ..
+  mkdir -p build
 }
 
 build() {
-  cmake -B build -S $pkgname \
+  cd build
+  cmake ../$pkgname \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_INSTALL_LIBDIR=lib \
     -DCMAKE_INSTALL_LIBEXECDIR=lib \
     -DBUILD_TESTING=OFF
-  cmake --build build
+  make
 }
 
 package() {
-  DESTDIR="$pkgdir" cmake --install build
+  cd build
+  make DESTDIR="$pkgdir" install
 }
