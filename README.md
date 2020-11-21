@@ -1,12 +1,10 @@
 # WARNING
 
-**Manjaro has updated to 5.19 now. you may be looking for** [the AUR package](https://aur.archlinux.org/packages/kwin-lowlatency/)**.**
+**Manjaro has updated to 5.20 now. you may be looking for** [the AUR package](https://aur.archlinux.org/packages/kwin-lowlatency/)**.**
 
 # kwin-lowlatency-manjaro
 
-this is a special PKGBUILD for Manjaro, which has ~~not updated Plasma to 5.19.~~ it just did.
-
-this tracks Plasma 5.18 LTS.
+this is a special PKGBUILD for Manjaro, which has ~~not updated Plasma to 5.19.~~ ~~5.20.~~ it just did.
 
 ## installation
 
